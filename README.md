@@ -3,7 +3,7 @@ Snippets of the new functional features of Java 8
 
 1. Streaming with arrays and index
 
-```
+```java
 import java.util.Scanner;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
