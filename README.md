@@ -19,3 +19,30 @@ public class Solution {
     }
 }
 ```
+
+2. Streaming reverse list of integers read from stdin
+
+```java
+import java.util.Scanner;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.util.LinkedList;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        sc.nextLine();//ignore the first line
+        StringBuffer result = new StringBuffer();
+        Stream.of(sc.nextLine().split(" "))
+            .mapToInt(Integer::parseInt)
+            .boxed()
+            .collect(Collectors.toCollection(LinkedList::new))
+            .descendingIterator()
+            .forEachRemaining(n -> result.append(n + " "));
+        sc.close();
+        System.out.println(result.toString().trim());
+    }
+}
+```
