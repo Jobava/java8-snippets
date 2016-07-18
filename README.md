@@ -63,4 +63,28 @@ public class Solution {
     return n> 1 && IntStream.range(2,n).noneMatch(i -> isDivisible(i));
 ```
 
-5.
+5.Find first element greater than 3 and double it
+
+```java
+    List<Integer> values = Arrays.asList(1, 2, 3, 5, 4, 6, 7, 8, 9, 10);
+    values.stream().filter(i -> i > 3).filter(i -> i % 2 == 0).map(i -> i * 2).findFirst().get();
+```
+
+6.Same version with Function object
+
+```java
+    //like above, except with a Function object
+    Function<Integer, Predicate<Integer>> isGreaterThan = pivot -> number -> number > pivot;
+    values.stream().filter(isGreaterThan(3)).filter(i -> i % 2 == 0).map(i -> i * 2).findFirst().get();
+    //or, with eager evaluation
+    values.stream().filter(isGreaterThan.apply(3)).filter(i -> i % 2 == 0).map(i -> i * 2).findFirst().get();
+    //a Function can also return a Function
+```
+
+7.Reduce
+
+```java
+    public static int totalValues (List<Integer> numbers, Predicate<Integer> selector) {
+        return numbers.stream().filter(selector).reduce(0, Math::addExact);
+    }
+```
