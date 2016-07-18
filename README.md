@@ -55,4 +55,12 @@ public class Solution {
     }
 ```
 
-4.
+4.Predicates
+
+```java
+    Predicate<Integer> isDivisible = divisor -> number % divisor == 0;
+    //how to use:
+    return n> 1 && IntStream.range(2,n).noneMatch(i -> isDivisible(i));
+```
+
+5.
