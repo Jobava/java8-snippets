@@ -1,7 +1,7 @@
 # java8-snippets
 Snippets of the new functional features of Java 8
 
-1. Streaming with arrays and index
+1.Streaming with arrays and index
 
 ```java
 import java.util.Scanner;
@@ -20,7 +20,7 @@ public class Solution {
 }
 ```
 
-2. Streaming reverse list of integers read from stdin
+2.Streaming reverse list of integers read from stdin
 
 ```java
 import java.util.Scanner;
@@ -46,3 +46,13 @@ public class Solution {
     }
 }
 ```
+
+3.Functional prime number example
+
+```java
+    private static boolean isPrime(int n) {
+        return n > 1 && IntStream.range(2, n).noneMatch(i -> n % i == 0);
+    }
+```
+
+4.
